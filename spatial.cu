@@ -12,10 +12,19 @@
 #include "spatial.h"
 #include "simple_knn.h"
 
+#include <cuda_runtime.h>  // Include the CUDA runtime header for cudaSetDevice()
+
 torch::Tensor
 distCUDA2(const torch::Tensor& points)
 {
   const int P = points.size(0);
+
+  // Determine which device the tensor is on
+  auto device = points.device();
+  int device_index = device.index(); // Get the index of the device
+
+  // Set the current CUDA device to the device where 'points' is located
+  cudaSetDevice(device_index);
 
   auto float_opts = points.options().dtype(torch::kFloat32);
   torch::Tensor means = torch::full({P}, 0.0, float_opts);
