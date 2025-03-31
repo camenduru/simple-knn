@@ -10,7 +10,7 @@
 #
 import torch
 from setuptools import setup
-from torch.utils.cpp_extension import HIPExtension, BuildExtension, ROCM_HOME
+from torch.utils.cpp_extension import CUDAExtension, BuildExtension, ROCM_HOME
 import os
 
 cxx_compiler_flags = []
@@ -29,13 +29,13 @@ if os.name == 'nt':
 setup(
     name="simple_knn",
     ext_modules=[
-        HIPExtension(
+        CUDAExtension(
             name="simple_knn._C",
             sources=[
             "spatial.hip", 
             "simple_knn.hip",
             "ext.cpp"],
-            extra_compile_args={"cxx": cxx_compiler_flags})
+            extra_compile_args={"nvcc": [], "cxx": cxx_compiler_flags})
         ],
     cmdclass={
         'build_ext': BuildExtension.with_options(use_hip=True)
