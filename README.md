@@ -5,10 +5,10 @@ Description: It compute the **average distance to the nearest neighbors** for a 
 
 Install:
 ```bash
-pip install git+https://github.com/coder-bryan-123/simple-knn
+pip install git+https://github.com/camenduru/simple-knn
 
 # or 
-git clone https://github.com/coder-bryan-123/simple-knn && cd simple-knn
+git clone https://github.com/camenduru/simple-knn && cd simple-knn
 pip install .
 ```
 
