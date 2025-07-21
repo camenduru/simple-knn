@@ -9,6 +9,6 @@
  * For inquiries contact  george.drettakis@inria.fr
  */
 
-#include <torch/extension.h>
+#include <torch/torch.h>
 
 torch::Tensor distCUDA2(const torch::Tensor& points);
