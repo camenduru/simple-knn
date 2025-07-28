@@ -1,4 +1,4 @@
 build/
 simple_knn.egg-info/
 dist/
-simple_knn/_C.cpython-310-x86_64-linux-gnu.so
+simple_knn/*.so
