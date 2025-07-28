@@ -1,3 +1,4 @@
 build/
 simple_knn.egg-info/
 dist/
+simple_knn/*.so
